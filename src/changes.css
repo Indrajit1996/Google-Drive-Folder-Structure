@@ -1,0 +1,25 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .change {
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif
+  }
+
+  .folder {
+    cursor: pointer;
+  }
+
+  .fo {
+    font-size: 20px;
+    padding-right: 20px;
+  }
+
+  .breadcrumbs {
+    padding-left: 16px;
+    color: #0278f8;
+  }
