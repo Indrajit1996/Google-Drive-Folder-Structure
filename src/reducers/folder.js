@@ -9,7 +9,7 @@ var objDataAssign = function(obj, keys, v) {
     }
     return obj;
 };
-const model_portfolios = (state = initialState, action) => {
+const folder = (state = initialState, action) => {
     let {type, payload} = action
     switch (type) {
         case 'ADD_NEW_FOLDER':
@@ -24,11 +24,11 @@ const model_portfolios = (state = initialState, action) => {
         }else {
             return {...state, ...fileData};
         }
-        case 'ADD_NEW_FILE':
-        return state;
+        // case 'ADD_NEW_FILE':
+        // return state;
 
         default:
           return state;
       }
     };
-export default model_portfolios
+export default folder
