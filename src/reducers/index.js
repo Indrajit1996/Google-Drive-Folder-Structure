@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import folder from './folder';
 
-const PortfolioApp = combineReducers({
+const folderStructureApp = combineReducers({
     data : folder
 });
-export default PortfolioApp;
+export default folderStructureApp;
