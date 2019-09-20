@@ -35,19 +35,7 @@ class Folder extends Component {
     return {data, breadcrumbs};
   }
   renderBreadCrumbs(breadcrumbs, type){
-    if(breadcrumbs.length) {
-     let result = breadcrumbs.map((val, key)=>{
-        return(
-          <Fragment key={key}>
-            <span className="folder" style={{paddingLeft: "16px"}}> > </span>
-            <Link to={{ pathname: key ? `/${type}/${btoa(val.path)}` : `/${type}`}}><span className="breadcrumbs folder"> {val.name} </span></Link>
-          </Fragment>
-        )
-      })
-      return (<><Link to={{ pathname: '/'  }}><i className="icon ion-md-home folder" ></i></Link> {result}</>)
-    } else {
       return (<Link to={{ pathname: '/'  }}><i className="icon ion-md-home folder" ></i></Link>)
-    }
   }
   render() {
     let { data, match:{ params:{ id, type } } } = this.props;
