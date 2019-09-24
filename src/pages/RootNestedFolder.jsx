@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import FileView from "../components/common/FileView";
 import TreeView from "../components/common/TreeView";
 import FolderActions from "../actions/FolderActions";
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ class folder2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showModal1: false,
       showModal: false
     };
     this.handleClose = this.handleClose.bind(this);
@@ -16,6 +18,7 @@ class folder2 extends Component {
 
   handleClose() {
     this.setState({
+      showModal1: false,
       showModal: false
     });
   }
@@ -36,6 +39,7 @@ class folder2 extends Component {
     let route = atob(id);
     this.props.addFolder({ data, path: route });
     this.setState({
+      showModal1: false,
       showModal: false
     });
   }
@@ -65,17 +69,19 @@ class folder2 extends Component {
       data = result.data;
       breadcrumbs =  result.breadcrumbs;
     }else if (type){
-      breadcrumbs = [{name: this.props.data[type]['name'],path: this.props.data[type]['path']}]
+      breadcrumbs = [{name: this.props.data[type]['name'], path: this.props.data[type]['path']}]
       data =
       this.props.data[type] && this.props.data[type]["children"]
         ? this.props.data[type]["children"]
         : {};
     }
-    let { showModal } = this.state;
+    let { showModal, showModal1 } = this.state;
     let result = Object.keys(data);
     return (
       <div className="container-fluid">  
        {this.renderBreadCrumbs(breadcrumbs, type)}
+       <div className="row">
+         <div className="col-4">
         <TreeView
           showModal={showModal}
           result={result}
@@ -86,6 +92,21 @@ class folder2 extends Component {
           handleSubmit={this.handleSubmit}
           onClick={() => this.setState({ showModal: true })}
         />
+        </div>
+        <div className="col-4">
+        <FileView
+          showModal={showModal1}
+          result={result}
+          data={data}
+          type={type}
+          route={route}
+          onHide={this.handleClose}
+          handleSubmit={this.handleSubmit}
+          onClick={() => this.setState({ showModal1: true })}
+        />
+        </div>
+        </div>
+
       </div>
     );
   }

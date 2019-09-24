@@ -33,4 +33,10 @@ export const data = {
         }
       }
     },
+    'file': {
+      path: '/file',
+      name: 'file',
+      type: 'file',
+      children: {}
+    }
   }

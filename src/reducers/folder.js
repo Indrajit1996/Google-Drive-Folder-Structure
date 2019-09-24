@@ -24,8 +24,8 @@ const folder = (state = initialState, action) => {
         }else {
             return {...state, ...fileData};
         }
-        // case 'ADD_NEW_FILE':
-        // return state;
+        case 'ADD_NEW_FILE':
+        return state;
 
         default:
           return state;

@@ -15,7 +15,7 @@ import React, { Component } from 'react'
   }
   handleSubmit = () => {
     let folder_data = this.state;
-    this.props.handleSubmit({folder_data, type: "folder"});
+    this.props.handleSubmit({folder_data, type: this.props.type});
     this.props.onHide();
     this.setState({
         folderName: '',
@@ -29,7 +29,7 @@ import React, { Component } from 'react'
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Add Folder</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Add {this.props.type}</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.onHide}>
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -37,8 +37,8 @@ import React, { Component } from 'react'
       <div className="modal-body">
         <form>
           <div className="form-group">
-            <label htmlFor="weight" className="col-form-label">Folder Name</label>
-            <input type="text" className="form-control" id="folderName" placeholder="Enter Folder Name" value={this.state.folderName} onChange={this.handleChange}/>
+            <label htmlFor="weight" className="col-form-label">{this.props.type} Name</label>
+            <input type="text" className="form-control" id="folderName" placeholder="Enter here" value={this.state.folderName} onChange={this.handleChange}/>
           </div>
         </form>
       </div>
