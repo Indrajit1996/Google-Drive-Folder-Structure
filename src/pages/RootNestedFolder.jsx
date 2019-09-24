@@ -46,11 +46,11 @@ class folder2 extends Component {
   renderBreadCrumbs(breadcrumbs, type){
     if(breadcrumbs.length) {
      let result = breadcrumbs.map((val, key)=>{
-      let style = ((breadcrumbs.length - 1) == key) ? {pointerEvents:'none',color:'black'}: {}
+      let style = ((breadcrumbs.length - 1) == key) ? {pointerEvents:'none',color:"black"} : {}
         return(
           <Fragment key={key}>
             <span className="folder" style={{paddingLeft: "16px"}}>> </span>
-            <Link style={style} to={{ pathname: key ? `/${type}/${btoa(val.path)}` : `/${type}`}}><span className="breadcrumbs folder">{val.name}</span></Link>
+            <Link to={{ pathname: key ? `/${type}/${btoa(val.path)}` : `/${type}`}}><span className="breadcrumbs folder" style={style}>{val.name}</span></Link>
           </Fragment>
         )
       })

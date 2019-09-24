@@ -45,7 +45,7 @@ class folder1 extends Component {
       return (<><Link to={{ pathname: '/'  }}><i className="icon ion-md-home folder" ></i></Link> 
           <Fragment>
             <span className="folder" style={{paddingLeft: "16px"}}> > </span>
-            <Link style={{pointerEvents:'none',color:'black'}} to={{ pathname: `/${type}`}}><span className="breadcrumbs folder"> {type} </span></Link>
+            <Link  to={{ pathname: `/${type}`}}><span className="breadcrumbs folder" style={{pointerEvents:'none',color:'black'}} > {type} </span></Link>
           </Fragment>
       </>)
   }

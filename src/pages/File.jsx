@@ -25,7 +25,7 @@ import "../changes.css";
         return(
           <Fragment key={key}>
             <span className="folder" style={{paddingLeft: "16px"}}>> </span>
-            <Link style={style} to={{ pathname: key != 0 ? `/${val.name}/${btoa(val.path)}` : `/${val.name}`}}><span className="breadcrumbs folder">{val.name}</span></Link>
+            <Link to={{ pathname: key != 0 ? `/${val.name}/${btoa(val.path)}` : `/${val.name}`}}><span className="breadcrumbs folder" style={style}>{val.name}</span></Link>
           </Fragment>
         )
       })
@@ -36,14 +36,13 @@ import "../changes.css";
   }
 
   render() {
-    let r = this.props.match.url.split("/");
-    let q = atob(r[4]);
+    let path_name = this.props.match.url.split("/");
     let {state} = this.props.location;
     let { data, match:{ params:{ id, type } } } = this.props;
     let route = "";
     let breadcrumbs = [];
     if(type) {
-      route = atob(r[4]);
+      route = atob(path_name[4]);
 
       let result = this.getDataBasedOnRoute(route, data);
       data = result.data;
