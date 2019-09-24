@@ -8,7 +8,6 @@ class Display extends Component {
       return btoa(path);
     }
     if (type) {
-      debugger
       return `${type}/${btoa(path)}`;
     }
     return path;
