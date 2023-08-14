@@ -7,7 +7,6 @@ import File from './pages/File';
 
 class App extends Component {
   render() {
-    console.log("app changes")
     return (
       <BrowserRouter>
             <Route  exact strict path='/file_system/file/file_name/:type' component={File} />
